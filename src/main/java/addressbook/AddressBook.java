@@ -1,5 +1,7 @@
 package addressbook;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +16,7 @@ public class AddressBook {
     private Long id;
     String name;
 
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     Set<BuddyInfo> buddies;
 
     protected  AddressBook() {

@@ -6,19 +6,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Iterator;
+
 /**
  * Created by richardcarson3 on 2/2/2017.
  */
 @RestController
 public class AddressBookController {
+    @Autowired
     private AddressBookRepository bookRepository;
+    @Autowired
     private BuddyInfoRepository buddyRepository;
 
-    @Autowired
+/*    @Autowired
     public AddressBookController(AddressBookRepository bookRepository, BuddyInfoRepository buddyRepository) {
         this.bookRepository = bookRepository;
-        this.buddyRepository = buddyRepository;
-    }
+    }*/
 
     @RequestMapping("/new")
     public AddressBook addAddressBook(@RequestParam(value="name", required=true) String name, Model model) {
@@ -33,7 +36,6 @@ public class AddressBookController {
         AddressBook book = bookRepository.findOne(addressBookID);
         BuddyInfo buddy = new BuddyInfo(name, address);
         book.addBuddy(buddy);
-        buddyRepository.save(buddy);
         bookRepository.save(book);
 
         return buddy;
@@ -42,7 +44,7 @@ public class AddressBookController {
     @RequestMapping("/remove")
     public void removeBuddyInfo(@RequestParam(value="addressBookID", required=true) long addressBookID, @RequestParam(value="buddyInfoID", required=true) long buddyInfoID, Model model) {
         AddressBook book = bookRepository.findOne(addressBookID);
-        BuddyInfo buddy = buddyRepository.findOne(addressBookID);
+        BuddyInfo buddy = buddyRepository.findOne(buddyInfoID);
         book.removeBuddy(buddy);
         bookRepository.save(book);
     }

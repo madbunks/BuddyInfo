@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@Transactional
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class AddressBookControllerTests {
     @Autowired AddressBookRepository bookRepository;
@@ -29,35 +28,34 @@ public class AddressBookControllerTests {
 
     @Before
     public void setUp() {
-        addressBook = new AddressBook("Test");
-        BuddyInfo buddyInfo = new BuddyInfo("Name", "Address");
-        addressBook.addBuddy(buddyInfo);
-        bookRepository.save(addressBook);
+        addressBook = this.restTemplate.getForObject(url("new?name=Test"), AddressBook.class);
+        buddyInfo = this.restTemplate.getForObject(url("add?addressBookID="+addressBook.getId()+"&name=test&address=test"), BuddyInfo.class);
     }
 
     @Test
     public void testNew() {
-        Assert.assertNotNull(this.restTemplate.getForObject(url("new"), AddressBook.class));
+        Assert.assertNotNull(this.restTemplate.getForObject(url("new?name=Test"), AddressBook.class));
     }
 
     @Test
     public void testAdd() {
         Assert.assertNotNull(this.restTemplate.getForObject(url(
-                "add?addressBookID"+addressBook.getId()+"&name=test&address=test"),
+                "add?addressBookID="+addressBook.getId()+"&name=test&address=test"),
                 BuddyInfo.class));
-        Assert.assertEquals(2, this.restTemplate.getForObject(url("get"), AddressBook.class).getBuddies().size());
+        Assert.assertEquals(2, this.restTemplate.getForObject(url("get?addressBookID="+addressBook.getId()), AddressBook.class).getBuddies().size());
     }
 
     @Test
     public void testRemove() {
         this.restTemplate.getForObject(url(
-                "remove?addressBookID"+addressBook.getId()+"&buddyInfoID="+buddyInfo.getId()), String.class);
-        this.restTemplate.getForObject(url(
-                "add?addressBookID"+addressBook.getId()+"&name=test&address=test"), null);
+                "remove?addressBookID="+addressBook.getId()+"&buddyInfoID="+buddyInfo.getId()), String.class);
         Assert.assertEquals(0, this.restTemplate.getForObject(url("get"), AddressBook.class).getBuddies().size());
     }
 
     private String url(String postfix) {
-        return String.format("http://localhost:%d/%s", port, postfix);
+        String url = String.format("http://localhost:%d/%s", port, postfix);
+        System.out.println("Using "+url);
+
+        return url;
     }
 }

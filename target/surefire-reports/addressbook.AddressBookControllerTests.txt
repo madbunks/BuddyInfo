@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: addressbook.AddressBookControllerTests
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 41.979 sec <<< FAILURE! - in addressbook.AddressBookControllerTests
-testAdd(addressbook.AddressBookControllerTests)  Time elapsed: 2.122 sec  <<< FAILURE!
-java.lang.AssertionError: null
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertNotNull(Assert.java:712)
-	at org.junit.Assert.assertNotNull(Assert.java:722)
-	at addressbook.AddressBookControllerTests.testAdd(AddressBookControllerTests.java:45)
-
-testRemove(addressbook.AddressBookControllerTests)  Time elapsed: 0.021 sec  <<< ERROR!
-java.lang.NullPointerException: null
-	at addressbook.AddressBookControllerTests.testRemove(AddressBookControllerTests.java:54)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 38.009 sec - in addressbook.AddressBookControllerTests

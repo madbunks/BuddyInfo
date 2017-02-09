@@ -1,6 +1,6 @@
 addressbook\AddressBook.class
+addressbook\BuddyInfo.class
 addressbook\Application.class
 addressbook\AddressBookController.class
 addressbook\AddressBookRepository.class
-addressbook\BuddyInfo.class
 addressbook\BuddyInfoRepository.class
