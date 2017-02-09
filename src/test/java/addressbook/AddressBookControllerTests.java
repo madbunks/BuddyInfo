@@ -44,7 +44,7 @@ public class AddressBookControllerTests {
     public void testAdd() {
         Assert.assertNotNull(this.restTemplate.getForObject(url(
                 "add?addressBookID"+addressBook.getId()+"&name=test&address=test"),
-                AddressBook.class).getId());
+                BuddyInfo.class).getId());
         Assert.assertEquals(2, this.restTemplate.getForObject(url("get"), AddressBook.class).getBuddies().size());
     }
 
