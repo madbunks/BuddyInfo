@@ -44,14 +44,14 @@ public class AddressBookControllerTests {
     public void testAdd() {
         Assert.assertNotNull(this.restTemplate.getForObject(url(
                 "add?addressBookID"+addressBook.getId()+"&name=test&address=test"),
-                BuddyInfo.class).getId());
+                BuddyInfo.class));
         Assert.assertEquals(2, this.restTemplate.getForObject(url("get"), AddressBook.class).getBuddies().size());
     }
 
     @Test
     public void testRemove() {
         this.restTemplate.getForObject(url(
-                "remove?addressBookID"+addressBook.getId()+"&buddyInfoID="+buddyInfo.getId()), null);
+                "remove?addressBookID"+addressBook.getId()+"&buddyInfoID="+buddyInfo.getId()), String.class);
         this.restTemplate.getForObject(url(
                 "add?addressBookID"+addressBook.getId()+"&name=test&address=test"), null);
         Assert.assertEquals(0, this.restTemplate.getForObject(url("get"), AddressBook.class).getBuddies().size());
