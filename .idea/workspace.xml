@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e11bbb4-4f50-4398-a554-37ef9216a27a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/addressbook/AddressBookControllerTests.java" afterPath="$PROJECT_DIR$/src/test/java/addressbook/AddressBookControllerTests.java" />
-    </list>
+    <list default="true" id="7e11bbb4-4f50-4398-a554-37ef9216a27a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -656,15 +654,15 @@
       <option name="presentableId" value="Default" />
       <updated>1486055710694</updated>
       <workItem from="1486055716245" duration="901000" />
-      <workItem from="1486647939937" duration="4566000" />
+      <workItem from="1486647939937" duration="4678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5467000" />
+    <option name="totallyTimeSpent" value="5579000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
